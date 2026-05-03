@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaBot | O Teu Discord Mais Social</title>
+    <!-- Fontes e Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style> 
+        :root {
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --discord-blurple: #5865F2;
+            --dark-bg: #0b0e11;
+            --card-bg: #15191d;
+            --text-main: #ffffff;
+            --text-dim: #a3a6aa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Glow */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 50%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(225, 48, 108, 0.15) 0%, transparent 70%);
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navbar */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--insta-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--insta-gradient);
+            color: white;
+            box-shadow: 0 10px 20px rgba(225, 48, 108, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(225, 48, 108, 0.4);
+        }
+
+        .btn-secondary {
+            background: #23272a;
+            color: white;
+        }
+
+        .btn-secondary:hover { background: #2c2f33; }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 100px 0;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #23282d;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover { border-color: #cc2366; }
+
+        .icon-box {
+            width: 60px; height: 60px;
+            background: rgba(225, 48, 108, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #e1306c;
+        }
+
+        .feature-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+        .feature-card p { color: var(--text-dim); }
+
+        /* Preview Section */
+        .preview {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 100px;
+            border: 1px solid #23282d;
+        }
+
+        .discord-mockup {
+            background: #313338;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid #23282d;
+            text-align: center;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo"><i class="fab fa-instagram"></i> Discgram</div>
+            <div><a href="#features" style="color: white; text-decoration: none;">Funcionalidades</a></div>
+        </nav>
+
+        <header>
+            <h1>O teu Discord em modo <span style="color: #e1306c">Social</span></h1>
+            <p class="hero-sub">Transforma os teus canais numa rede social vibrante. Publicações, likes reais e conversas organizadas.</p>
+            
+            <div class="cta-group">
+                <!-- SUBSTITUI PELO TEU LINK DE CONVITE -->
+                <a href="https://discord.com/oauth2/authorize?client_id=1445161302166343722&permissions=8&integration_type=0&scope=bot" class="btn btn-primary">
+                    <i class="fab fa-discord"></i> Adicionar ao Discord
+                </a>
+                <a href="#" class="btn btn-secondary">Ver Comandos</a>
+            </div>
+        </header>
+
+        <section class="features" id="features">
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-camera"></i></div>
+                <h3>Posts Imersivos</h3>
+                <p>Usa o comando <code>/insta</code> para criar posts elegantes com embeds que destacam a tua imagem e legenda.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-heart"></i></div>
+                <h3>Likes Inteligentes</h3>
+                <p>Sistema de curtidas por utilizador. O dono do post pode ver exatamente quem deu feedback com um clique.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box"><i class="fas fa-comments"></i></div>
+                <h3>Comentários em Threads</h3>
+                <p>Mantém o canal limpo. Cada post abre uma Thread automática para discussões sem poluir o chat principal.</p>
+            </div>
+        </section>
+
+        <section class="preview">
+            <h2>Experiência Nativa</h2>
+            <p style="color: var(--text-dim)">Não precisas de sair do Discord para interagir.</p>
+            
+            <div class="discord-mockup">
+                <div style="color: #dbdee1; font-weight: bold; margin-bottom: 10px;">📸 Novo post de Kosmo</div>
+                <div style="color: #dbdee1; background: #2b2d31; padding: 10px; border-radius: 5px; border-left: 4px solid #e1306c;">
+                    <p>Curtindo a vibe do bot! 🚀</p>
+                    <div style="background: #444; height: 150px; border-radius: 5px; margin-top: 10px; display: flex; align-items: center; justify-content: center; color: #888;">[Imagem do Post]</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; color: #b5bac1;">❤️ 12 Curtidas | 💬 Clica para comentar</div>
+                </div>
+                <div style="margin-top: 15px; display: flex; gap: 5px;">
+                    <div style="background: #da373c; padding: 5px 15px; border-radius: 3px; font-size: 0.8rem;">❤️ Curtir</div>
+                    <div style="background: #4e5058; padding: 5px 15px; border-radius: 3px; font-size: 0.8rem;">💬 Comentar</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Discgram. Desenvolvido com ❤️ para a comunidade.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
